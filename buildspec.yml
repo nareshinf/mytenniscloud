@@ -16,10 +16,10 @@ phases:
     commands:
     - echo Build completed
     - ls -l www
-
+    - cp -r appspec.yml scripts www/
+    - cd www && zip -r ../league_build.zip *
 
 artifacts:
   files:
-    - 'www/**/*'
-  discard-paths: yes
+    - 'league_build.zip'
   
