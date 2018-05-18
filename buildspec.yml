@@ -1,24 +1,25 @@
-
 version: 0.2
 phases:
   install:
     commands:
-    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-    - sudo apt-get install -y nodejs
     - sudo npm install -g cordova
     - sudo npm install -g ionic
+    - npm i npm@latest -g
   
   build:
     commands:
     - echo Build started on `date`
+    - npm install
     - ionic build
 
   post_build:
     commands:
     - echo Build completed
+    - ls -l www
 
 
 artifacts:
   files:
-    - 'www/*'
-    
+    - 'www/**/*'
+  discard-paths: yes
+  
