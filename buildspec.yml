@@ -14,12 +14,13 @@ phases:
 
   post_build:
     commands:
-    - echo Build completed
+    - echo Build completed on `date`
     - ls -l www
+    - ls -l www/build
     - cp -r appspec.yml scripts www/
     - cd www && zip -r ../league_build.zip *
 
 artifacts:
   files:
     - 'league_build.zip'
-  
+    - .ebextensions/**/*
